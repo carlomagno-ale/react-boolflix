@@ -1,22 +1,25 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 const MoviesContext = createContext();
 
-function MoviesProvider({ children }) {
+const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
 
-    const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
+function MoviesProvider({ children }) {
 
     const [movies, setMovies] = useState([]);
 
-    const base_movies_api_url = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=it-IT&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`;
+    const urlMovie = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}`;
 
-    useEffect(() => {
-        fetch(base_movies_api_url)
+    function clickFetch(searchText) {
+
+        fetch(urlMovie + `&query=${searchText}`)
             .then(res => res.json())
             .then(data => {
-                setMovies(data);
+
+                setMovies(data.results);
+
             });
-    }, []);
+    }
 
     return (
 
@@ -24,13 +27,13 @@ function MoviesProvider({ children }) {
             value={{
                 movies,
                 setMovies,
+                clickFetch
             }}
         >
             {children}
         </MoviesContext.Provider>
     );
 }
-
 
 function useMovies() {
     const context = useContext(MoviesContext);
