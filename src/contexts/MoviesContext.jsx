@@ -1,7 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
 const MoviesContext = createContext();
-
 const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
 
 function MoviesProvider({ children }) {
@@ -10,7 +9,6 @@ function MoviesProvider({ children }) {
     const [seriesTV, setSeriesTV] = useState([]);
 
     const urlMovie = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&include_adult=false&include_video=false`;
-
     const urlTV = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&include_adult=false&include_video=false`
 
     function handleMovie(searchText) {
@@ -50,7 +48,7 @@ function MoviesProvider({ children }) {
                 handleMovie,
                 seriesTV,
                 setSeriesTV,
-                handleTV
+                handleTV,
             }}
         >
             {children}
