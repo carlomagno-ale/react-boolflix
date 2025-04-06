@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <>
             <div>
-                <form
+                <form className="text-center mt-5"
                     onSubmit={(e) => {
                         e.preventDefault();
                         handleMovie(searchText);

@@ -39,6 +39,8 @@ const allFlags = {
     sl: "https://flags.fmcdn.net/data/flags/mini/si.png",
     sq: "https://flags.fmcdn.net/data/flags/mini/al.png",
     be: "https://flags.fmcdn.net/data/flags/mini/by.png",
+    mn: "https://flags.fmcdn.net/data/flags/mini/mn.png",
+    fa: "https://flags.fmcdn.net/data/flags/mini/ir.png",
 };
 
 export default allFlags;
