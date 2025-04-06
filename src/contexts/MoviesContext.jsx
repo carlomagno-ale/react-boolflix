@@ -1,7 +1,12 @@
 import { createContext, useContext, useState } from "react";
+import allFlags from "../data/flagList";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 
 const MoviesContext = createContext();
 const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
+
 
 function MoviesProvider({ children }) {
 
@@ -10,6 +15,9 @@ function MoviesProvider({ children }) {
 
     const urlMovie = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&include_adult=false&include_video=false`;
     const urlTV = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&include_adult=false&include_video=false`
+    const cover = "https://image.tmdb.org/t/p/w342";
+
+    const flags = allFlags
 
     function handleMovie(searchText) {
 
@@ -39,6 +47,80 @@ function MoviesProvider({ children }) {
             });
     }
 
+    function star(rating) {
+
+        const halfNumb = rating / 2;
+        const roundNumb = Math.floor(halfNumb);
+
+        if (roundNumb === 1) {
+
+            return (
+                <>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                </>);
+
+        } else if (roundNumb === 2) {
+
+            return (
+                <>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                </>
+            );
+
+        } else if (roundNumb === 3) {
+            return (
+                <>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                </>)
+
+        } else if (roundNumb === 4) {
+
+            return (
+                <>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                </>)
+
+
+        } else if (roundNumb === 5) {
+
+            return (
+                <>
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                </>)
+
+        } else {
+
+            return (
+                <>
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                    <FontAwesomeIcon icon={faStarRegular} />
+                </>);
+        }
+    }
+
     return (
 
         <MoviesContext.Provider
@@ -49,6 +131,9 @@ function MoviesProvider({ children }) {
                 seriesTV,
                 setSeriesTV,
                 handleTV,
+                cover,
+                star,
+                flags
             }}
         >
             {children}

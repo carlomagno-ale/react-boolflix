@@ -1,5 +1,5 @@
 
-const flags = {
+const allFlags = {
     it: "https://flags.fmcdn.net/data/flags/mini/it.png",
     en: "https://flags.fmcdn.net/data/flags/mini/gb.png",
     es: "https://flags.fmcdn.net/data/flags/mini/es.png",
@@ -41,4 +41,4 @@ const flags = {
     be: "https://flags.fmcdn.net/data/flags/mini/by.png",
 };
 
-export default flags;
+export default allFlags;

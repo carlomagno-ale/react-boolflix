@@ -1,15 +1,10 @@
 import { useState } from "react";
 import { useMovies } from "../contexts/MoviesContext";
-import flags from "../data/flagList";
-
 
 export default function Home() {
 
-    const { movies, handleMovie, seriesTV, handleTV } = useMovies();
-
+    const { movies, handleMovie, seriesTV, handleTV, cover, star, flags } = useMovies();
     const [searchText, setSearchText] = useState('');
-
-    const cover = "https://image.tmdb.org/t/p/w342";
 
     return (
         <>
@@ -44,7 +39,7 @@ export default function Home() {
                                     ) : (
                                         movie.original_language
                                     )}</li>
-                                    <li>Voti: {movie.vote_average}</li>
+                                    <li>Voti: {star(movie.vote_average)}</li>
                                 </ul>
                             ))}
                         </div>
@@ -59,7 +54,7 @@ export default function Home() {
                                     <li>Serie: {series.name}</li>
                                     <li>Titolo originale: {series.original_name}</li>
                                     <li>Lingua: <img src={flags[series.original_language]} alt={series.original_language} /></li>
-                                    <li>Voti: {series.vote_average}</li>
+                                    <li>Voti: {star(series.vote_average)}</li>
                                 </ul>
                             ))}
                         </div>
