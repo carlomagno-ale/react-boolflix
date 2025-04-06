@@ -36,7 +36,11 @@ export default function Home() {
                                 <ul key={movie.id}>
                                     <li>Film: {movie.title}</li>
                                     <li>Titolo originale: {movie.original_title}</li>
-                                    <li>Lingua: <img src={flags[movie.original_language]} alt={movie.original_language} /></li>
+                                    <li>Lingua: {flags[movie.original_language] ? (
+                                        <img src={flags[movie.original_language]} alt={movie.original_language} />
+                                    ) : (
+                                        movie.original_language
+                                    )}</li>
                                     <li>Voti: {movie.vote_average}</li>
                                 </ul>
                             ))}
@@ -59,8 +63,6 @@ export default function Home() {
                         <span></span>
                     )}
                 </section>
-
-
             </div>
         </>
     );
