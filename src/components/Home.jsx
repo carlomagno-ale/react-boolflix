@@ -37,87 +37,89 @@ export default function Home() {
                 </div>
             </header>
 
-            <main className="container text-center">
+            <main>
 
-                <section className="row g-4 mt-1">
+                <div className="container mb-4">
 
-                    {/* MOVIE */}
-                    {movies.length > 0 ? (
-                        <>
-                            {movies.map((movie) => (
-                                <div key={movie.id} className="col-4">
-                                    <div className="card border-0">
+                    <section className="row g-4 mt-1">
 
-                                        <img
-                                            src={movie.poster_path ? `${cover}${movie.poster_path}` : placeholder}
-                                            alt={`Poster di ${movie.title}`}
-                                            className="card-img-top cover"
-                                        />
 
-                                        <div className="card-overlay border-0">
-                                            <div className="overlay-content">
-                                                <h4 className="card-title">{movie.title}</h4>
-                                                <span className="value-title">Titolo originale:</span> {movie.original_title}
-                                                <div><span className="value-title">Lingua:</span>  <span className="flag">{flags[movie.original_language] ? (
-                                                    <img src={flags[movie.original_language]} alt={movie.original_language} />
-                                                ) : (
-                                                    movie.original_language
-                                                )}</span></div>
-                                                <div><span className="value-title">Voto:</span><span className="rating-star"> {star(movie.vote_average)}</span></div>
-                                                {movie.overview.length > 0 ? (<><span className="value-title">Overview:</span><span className="overview">{movie.overview}</span></>) : (
-                                                    <span></span>
-                                                )}
+                        {movies.length > 0 ? (
+                            <>
+                                {movies.map((movie) => (
+                                    <div key={movie.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <div className="card border-0 h-100">
+
+                                            <img
+                                                src={movie.poster_path ? `${cover}${movie.poster_path}` : placeholder}
+                                                alt={`Poster di ${movie.title}`}
+                                                className="card-img-top cover"
+                                            />
+
+                                            <div className="card-overlay border-0">
+                                                <div className="overlay-content">
+                                                    <h4 className="card-title">{movie.title}</h4>
+                                                    <span className="value-title">Titolo originale:</span> {movie.original_title}
+                                                    <div><span className="value-title">Lingua:</span>  <span className="flag">{flags[movie.original_language] ? (
+                                                        <img src={flags[movie.original_language]} alt={movie.original_language} />
+                                                    ) : (
+                                                        movie.original_language
+                                                    )}</span></div>
+                                                    <div><span className="value-title">Voto:</span><span className="rating-star"> {star(movie.vote_average)}</span></div>
+                                                    {movie.overview.length > 0 ? (<><span className="value-title">Overview:</span><span className="overview">{movie.overview}</span></>) : (
+                                                        <span></span>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </>
-                    ) : (
-                        <span></span>
-                    )}
+                                ))}
+                            </>
+                        ) : (
+                            <span></span>
+                        )}
 
 
-                    {/* TV*/}
+                        {/* TV */}
 
-                    {seriesTV.length > 0 ? (
-                        <>
-                            {seriesTV.map((series) => (
-                                <div key={series.id} className="col-4">
-                                    <div className="card border-0">
+                        {seriesTV.length > 0 ? (
+                            <>
+                                {seriesTV.map((series) => (
+                                    <div key={series.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <div className="card border-0 h-100">
 
-                                        <img
-                                            src={series.poster_path ? `${cover}${series.poster_path}` : placeholder}
-                                            alt={`Poster di ${series.name}`}
-                                            className="card-img-top cover"
-                                        />
+                                            <img
+                                                src={series.poster_path ? `${cover}${series.poster_path}` : placeholder}
+                                                alt={`Poster di ${series.name}`}
+                                                className="card-img-top cover"
+                                            />
 
-                                        <div className="card-overlay border-0">
-                                            <div className="overlay-content">
-                                                <h4 className="card-title">{series.name}</h4>
-                                                <span className="value-title">Titolo originale:</span> {series.original_name}
-                                                <div><span className="value-title">Lingua:</span>  <span className="flag">{flags[series.original_language] ? (
-                                                    <img src={flags[series.original_language]} alt={series.original_language} />
-                                                ) : (
-                                                    series.original_language
-                                                )}</span></div>
-                                                <div><span className="value-title">Voto:</span><span className="rating-star"> {star(series.vote_average)}</span></div>
-                                                {series.overview.length > 0 ? (<><span className="value-title">Overview:</span><span className="overview">{series.overview}</span></>) : (
-                                                    <span></span>
-                                                )}
+                                            <div className="card-overlay border-0">
+                                                <div className="overlay-content">
+                                                    <h4 className="card-title">{series.name}</h4>
+                                                    <span className="value-title">Titolo originale:</span> {series.original_name}
+                                                    <div><span className="value-title">Lingua:</span>  <span className="flag">{flags[series.original_language] ? (
+                                                        <img src={flags[series.original_language]} alt={series.original_language} />
+                                                    ) : (
+                                                        series.original_language
+                                                    )}</span></div>
+                                                    <div><span className="value-title">Voto:</span><span className="rating-star"> {star(series.vote_average)}</span></div>
+                                                    {series.overview.length > 0 ? (<><span className="value-title">Overview:</span><span className="overview">{series.overview}</span></>) : (
+                                                        <span></span>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </>
-                    ) : (
-                        <span></span>
-                    )}
+                                ))}
+                            </>
+                        ) : (
+                            <></>
+                        )}
 
 
-                </section>
-
+                    </section>
+                </div>
             </main>
 
         </>
