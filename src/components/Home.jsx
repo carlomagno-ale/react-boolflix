@@ -8,7 +8,6 @@ export default function Home() {
 
     return (
         <>
-
             <header>
                 <div className="container">
                     <nav className="navbar navbar-dark bg-dark">
@@ -17,7 +16,6 @@ export default function Home() {
                                 <img src={logo} alt="Boolflix Logo" />
                             </a>
                             <form className="d-flex" role="search"
-
                                 onSubmit={(e) => {
                                     e.preventDefault();
                                     handleMovie(searchText.toLowerCase());
@@ -34,58 +32,94 @@ export default function Home() {
                                 />
                                 <button className="btn btn-outline-danger" type="submit">{iconSearch}</button>
                             </form>
-
                         </div>
                     </nav>
                 </div>
             </header>
 
-            <div>
+            <main className="container text-center">
 
+                <section className="row g-4 mt-1">
 
-                <section>
+                    {/* MOVIE */}
                     {movies.length > 0 ? (
-                        <div>
+                        <>
                             {movies.map((movie) => (
-                                <ul key={movie.id}>
-                                    <img
-                                        src={movie.poster_path ? `${cover}${movie.poster_path}` : placeholder}
-                                        alt={`Poster di ${movie.title}`}
-                                    />
-                                    <li>Film: {movie.title}</li>
-                                    <li>Titolo originale: {movie.original_title}</li>
-                                    <li>Lingua: {flags[movie.original_language] ? (
-                                        <img src={flags[movie.original_language]} alt={movie.original_language} />
-                                    ) : (
-                                        movie.original_language
-                                    )}</li>
-                                    <li>Voti: <span className="rating-star"> {star(movie.vote_average)}</span></li>
-                                </ul>
+                                <div key={movie.id} className="col-4">
+                                    <div className="card border-0">
+
+                                        <img
+                                            src={movie.poster_path ? `${cover}${movie.poster_path}` : placeholder}
+                                            alt={`Poster di ${movie.title}`}
+                                            className="card-img-top cover"
+                                        />
+
+                                        <div className="card-overlay border-0">
+                                            <div className="overlay-content">
+                                                <h4 className="card-title">{movie.title}</h4>
+                                                <span className="value-title">Titolo originale:</span> {movie.original_title}
+                                                <div><span className="value-title">Lingua:</span>  <span className="flag">{flags[movie.original_language] ? (
+                                                    <img src={flags[movie.original_language]} alt={movie.original_language} />
+                                                ) : (
+                                                    movie.original_language
+                                                )}</span></div>
+                                                <div><span className="value-title">Voto:</span><span className="rating-star"> {star(movie.vote_average)}</span></div>
+                                                {movie.overview.length > 0 ? (<><span className="value-title">Overview:</span><span className="overview">{movie.overview}</span></>) : (
+                                                    <span></span>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             ))}
-                        </div>
+                        </>
                     ) : (
                         <span></span>
                     )}
+
+
+                    {/* TV*/}
+
                     {seriesTV.length > 0 ? (
-                        <div>
+                        <>
                             {seriesTV.map((series) => (
-                                <ul key={series.id}>
-                                    <img
-                                        src={series.poster_path ? `${cover}${series.poster_path}` : placeholder}
-                                        alt={`Poster di ${series.name}`}
-                                    />
-                                    <li>Serie: {series.name}</li>
-                                    <li>Titolo originale: {series.original_name}</li>
-                                    <li>Lingua: <img src={flags[series.original_language]} alt={series.original_language} /></li>
-                                    <li>Voti: <span className="rating-star">{star(series.vote_average)}</span></li>
-                                </ul>
+                                <div key={series.id} className="col-4">
+                                    <div className="card border-0">
+
+                                        <img
+                                            src={series.poster_path ? `${cover}${series.poster_path}` : placeholder}
+                                            alt={`Poster di ${series.name}`}
+                                            className="card-img-top cover"
+                                        />
+
+                                        <div className="card-overlay border-0">
+                                            <div className="overlay-content">
+                                                <h4 className="card-title">{series.name}</h4>
+                                                <span className="value-title">Titolo originale:</span> {series.original_name}
+                                                <div><span className="value-title">Lingua:</span>  <span className="flag">{flags[series.original_language] ? (
+                                                    <img src={flags[series.original_language]} alt={series.original_language} />
+                                                ) : (
+                                                    series.original_language
+                                                )}</span></div>
+                                                <div><span className="value-title">Voto:</span><span className="rating-star"> {star(series.vote_average)}</span></div>
+                                                {series.overview.length > 0 ? (<><span className="value-title">Overview:</span><span className="overview">{series.overview}</span></>) : (
+                                                    <span></span>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             ))}
-                        </div>
+                        </>
                     ) : (
                         <span></span>
                     )}
+
+
                 </section>
-            </div>
+
+            </main>
+
         </>
     );
 }
