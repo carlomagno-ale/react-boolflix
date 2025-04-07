@@ -12,8 +12,8 @@ export default function Home() {
                 <form className="text-center mt-5"
                     onSubmit={(e) => {
                         e.preventDefault();
-                        handleMovie(searchText);
-                        handleTV(searchText);
+                        handleMovie(searchText.toLowerCase());
+                        handleTV(searchText.toLowerCase());
                         setSearchText('');
                     }}
                 >
