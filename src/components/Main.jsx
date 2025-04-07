@@ -83,11 +83,13 @@ export default function Main() {
                             </>
                         ) : (
                             <>
+                                {/* se il risultato di ricerca è false */}
                                 {!error && !errorTV && (
                                     <div className="alert alert-danger text-center" role="alert">
                                         Nessun film o serie trovati
                                     </div>
                                 )}
+                                {/* lista di film in uscita*/}
                                 <h4 className="section-title text-center">Film in uscita</h4>
                                 {popularMovies.map((movie) => (
                                     <div key={movie.id} className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">

@@ -60,8 +60,6 @@ function GlobalProvider({ children }) {
             });
     }, []);
 
-
-
     // Rating espresso in stelle da 1 a 5, il rating originale è da 1 a 10
     function star(rating) {
         const halfNumb = rating / 2;
@@ -79,10 +77,8 @@ function GlobalProvider({ children }) {
         <GlobalContext.Provider
             value={{
                 movies,
-                setMovies,
                 handleMovie,
                 seriesTV,
-                setSeriesTV,
                 handleTV,
                 cover,
                 star,

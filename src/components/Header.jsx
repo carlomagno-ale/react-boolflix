@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGlobal } from "../contexts/GlobalContext";
 
-export default function Home() {
+export default function Header() {
 
     const { handleMovie, handleTV, logo, iconSearch } = useGlobal();
     const [searchText, setSearchText] = useState('');
