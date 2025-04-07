@@ -3,7 +3,7 @@ import { useMovies } from "../contexts/MoviesContext";
 
 export default function Home() {
 
-    const { movies, handleMovie, seriesTV, handleTV, cover, star, flags } = useMovies();
+    const { movies, handleMovie, seriesTV, handleTV, cover, star, flags, placeholder } = useMovies();
     const [searchText, setSearchText] = useState('');
 
     return (
@@ -31,7 +31,10 @@ export default function Home() {
                         <div>
                             {movies.map((movie) => (
                                 <ul key={movie.id}>
-                                    <img src={`${cover}${movie.poster_path}`} alt={`Poster di ${movie.title}`} />
+                                    <img
+                                        src={movie.poster_path ? `${cover}${movie.poster_path}` : placeholder}
+                                        alt={`Poster di ${movie.title}`}
+                                    />
                                     <li>Film: {movie.title}</li>
                                     <li>Titolo originale: {movie.original_title}</li>
                                     <li>Lingua: {flags[movie.original_language] ? (
@@ -50,7 +53,10 @@ export default function Home() {
                         <div>
                             {seriesTV.map((series) => (
                                 <ul key={series.id}>
-                                    <img src={`${cover}${series.poster_path}`} alt={`Poster di ${series.name}`} />
+                                    <img
+                                        src={series.poster_path ? `${cover}${series.poster_path}` : placeholder}
+                                        alt={`Poster di ${series.name}`}
+                                    />
                                     <li>Serie: {series.name}</li>
                                     <li>Titolo originale: {series.original_name}</li>
                                     <li>Lingua: <img src={flags[series.original_language]} alt={series.original_language} /></li>

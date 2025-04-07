@@ -3,6 +3,7 @@ import allFlags from "../data/flagList";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
+import placeholder from "../assets/placeholder.jpg"
 
 const MoviesContext = createContext();
 const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
@@ -133,7 +134,8 @@ function MoviesProvider({ children }) {
                 handleTV,
                 cover,
                 star,
-                flags
+                flags,
+                placeholder
             }}
         >
             {children}
