@@ -11,7 +11,7 @@ export default function Main() {
                     <section className="row g-4 mt-1 justify-content-center">
                         {movies.length > 0 || seriesTV.length > 0 ? (
                             <>
-                                <h3 className="section-title text-center">La tua ricerca</h3>
+                                <h4 className="text-center search-result">Ecco i risultati della tua ricerca:</h4>
                                 {/*MOVIE*/}
                                 {movies.map((movie) => (
                                     <div key={movie.id} className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
@@ -88,7 +88,7 @@ export default function Main() {
                                         Nessun film o serie trovati
                                     </div>
                                 )}
-                                <h3 className="section-title text-center">Film in uscita</h3>
+                                <h4 className="section-title text-center">Film in uscita</h4>
                                 {popularMovies.map((movie) => (
                                     <div key={movie.id} className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
                                         <div className="card border-0 h-100">

@@ -126,3 +126,7 @@ header {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+.search-result {
+  color: white;
+}

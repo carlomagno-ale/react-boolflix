@@ -67,67 +67,12 @@ function GlobalProvider({ children }) {
         const halfNumb = rating / 2;
         const roundNumb = Math.floor(halfNumb);
 
-        if (roundNumb === 1) {
-            return (
-                <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                </>
-            );
-        } else if (roundNumb === 2) {
-            return (
-                <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                </>
-            );
-        } else if (roundNumb === 3) {
-            return (
-                <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                </>
-            );
-        } else if (roundNumb === 4) {
-            return (
-                <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                </>
-            );
-        } else if (roundNumb === 5) {
-            return (
-                <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                </>
-            );
-        } else {
-            return (
-                <>
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                    <FontAwesomeIcon icon={faStarRegular} />
-                </>
-            );
+        let stars = [];
+
+        for (let i = 0; i < 5; i++) {
+            stars.push(i < roundNumb ? <FontAwesomeIcon icon={faStar} /> : <FontAwesomeIcon icon={faStarRegular} />);
         }
+        return stars;
     }
 
     return (
