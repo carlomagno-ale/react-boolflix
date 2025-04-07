@@ -1,5 +1,5 @@
 import { GlobalProvider } from "./contexts/GlobalContext";
-import Home from "./components/Main";
+import Main from "./components/Main";
 import Header from "./components/Header"
 
 export default function App() {
@@ -9,7 +9,7 @@ export default function App() {
     <GlobalProvider>
 
       <Header />
-      <Home />
+      <Main />
 
     </GlobalProvider>
   );
