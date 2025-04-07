@@ -1,5 +1,6 @@
 @import 'bootstrap';
 
+/* common */
 :root {
 
   --light: white;
@@ -15,6 +16,12 @@ body {
   min-width: 400px;
 }
 
+.container {
+
+  width: 60%;
+}
+
+/*HEADER*/
 header {
 
   background-color: var(--bg-dark);
@@ -24,19 +31,9 @@ header {
     width: 9rem;
   }
 
-  .container {
-
-    width: 60%;
-  }
 }
 
-main {
-
-  .container {
-
-    width: 60%;
-  }
-}
+/*MAIN*/
 
 .form-control:focus {
   border-color: var(--danger);
@@ -91,8 +88,6 @@ main {
     background-color: var(--bg-dark);
   }
 
-  /*scrollbar più sottile*/
-
 }
 
 .flag {
@@ -123,4 +118,11 @@ main {
 
 .overview {
   line-height: 1.5rem;
+}
+
+.section-title {
+
+  color: var(--light);
+  text-transform: uppercase;
+  font-weight: bold;
 }
