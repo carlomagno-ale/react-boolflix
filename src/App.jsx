@@ -1,5 +1,6 @@
 import { MoviesProvider } from "./contexts/MoviesContext";
-import Home from "./components/Home";
+import Home from "./components/Main";
+import Header from "./components/Header"
 
 export default function App() {
 
@@ -7,6 +8,7 @@ export default function App() {
 
     <MoviesProvider>
 
+      <Header />
       <Home />
 
     </MoviesProvider>
