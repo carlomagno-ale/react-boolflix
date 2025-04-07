@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { useMovies } from "../contexts/MoviesContext";
+import { useGlobal } from "../contexts/GlobalContext";
 
 export default function Home() {
 
-    const { movies, seriesTV, cover, star, flags, placeholder } = useMovies();
+    const { movies, seriesTV, cover, star, flags, placeholder } = useGlobal();
 
     return (
         <>

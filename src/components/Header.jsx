@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useMovies } from "../contexts/MoviesContext";
+import { useGlobal } from "../contexts/GlobalContext";
 
 export default function Home() {
 
-    const { handleMovie, handleTV, logo, iconSearch, handleSearch } = useMovies();
+    const { handleMovie, handleTV, logo, iconSearch } = useGlobal();
     const [searchText, setSearchText] = useState('');
 
     return (
