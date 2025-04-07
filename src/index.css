@@ -3,9 +3,28 @@
 :root {
 
   --light: white;
+  --danger: red;
+  --bg-dark: #212529;
+
 }
 
 .container {
 
   width: 60%;
+}
+
+header {
+
+  background-color: var(--bg-dark);
+
+  img {
+
+    width: 9rem;
+  }
+}
+
+.form-control:focus {
+  border-color: var(--danger);
+  box-shadow: none;
+  outline: none;
 }

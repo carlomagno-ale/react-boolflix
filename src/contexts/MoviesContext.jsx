@@ -4,9 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import placeholder from "../assets/placeholder.jpg"
+import logo from "../assets/logo.png"
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const MoviesContext = createContext();
 const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
+
+const iconSearch = <FontAwesomeIcon icon={faMagnifyingGlass} />
 
 
 function MoviesProvider({ children }) {
@@ -19,6 +23,9 @@ function MoviesProvider({ children }) {
     const cover = "https://image.tmdb.org/t/p/w342";
 
     const flags = allFlags
+
+
+    //recupera i dati dei film, combinando url con l'input dell'utente
 
     function handleMovie(searchText) {
 
@@ -34,6 +41,8 @@ function MoviesProvider({ children }) {
             });
     }
 
+    //recupera i dati delle serie, combinando url con l'input dell'utente
+
     function handleTV(searchText) {
 
         fetch(urlTV + `&query=${searchText}`)
@@ -47,6 +56,8 @@ function MoviesProvider({ children }) {
                 console.error("Error", error);
             });
     }
+
+    // rating espresso in stelle dei film
 
     function star(rating) {
 
@@ -135,7 +146,9 @@ function MoviesProvider({ children }) {
                 cover,
                 star,
                 flags,
-                placeholder
+                placeholder,
+                logo,
+                iconSearch
             }}
         >
             {children}
