@@ -15,7 +15,7 @@ export default function Home() {
                             <a className="navbar-brand">
                                 <img src={logo} alt="Boolflix Logo" />
                             </a>
-                            <form className="d-flex" role="search"
+                            <form className="d-flex my-2" role="search"
                                 onSubmit={(e) => {
                                     e.preventDefault();
                                     handleMovie(searchText.toLowerCase());
@@ -38,16 +38,12 @@ export default function Home() {
             </header>
 
             <main>
-
                 <div className="container mb-4">
-
-                    <section className="row g-4 mt-1">
-
-
+                    <section className="row g-4 mt-1 justify-content-center">
                         {movies.length > 0 ? (
                             <>
                                 {movies.map((movie) => (
-                                    <div key={movie.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                                    <div key={movie.id} className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
                                         <div className="card border-0 h-100">
 
                                             <img
@@ -79,9 +75,7 @@ export default function Home() {
                             <span></span>
                         )}
 
-
                         {/* TV */}
-
                         {seriesTV.length > 0 ? (
                             <>
                                 {seriesTV.map((series) => (
@@ -111,19 +105,16 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div>
-                                ))}
+                                ))};
                             </>
                         ) : (
                             <></>
                         )}
-
-
                     </section>
                 </div>
             </main>
-
         </>
     );
-}
+};
 
 

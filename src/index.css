@@ -12,11 +12,7 @@
 
 body {
   background-color: var(--bg-mid);
-}
-
-.container {
-
-  width: 60%;
+  min-width: 400px;
 }
 
 header {
@@ -26,6 +22,19 @@ header {
   img {
 
     width: 9rem;
+  }
+
+  .container {
+
+    width: 60%;
+  }
+}
+
+main {
+
+  .container {
+
+    width: 60%;
   }
 }
 
@@ -47,6 +56,7 @@ header {
 }
 
 .card-img-top.cover {
+  border-radius: 0;
   object-fit: cover;
   width: 100%;
   height: 300px;
@@ -80,6 +90,8 @@ header {
   &::-webkit-scrollbar-track {
     background-color: var(--bg-dark);
   }
+
+  /*scrollbar più sottile*/
 
 }
 
