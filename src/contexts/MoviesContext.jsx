@@ -24,7 +24,6 @@ function MoviesProvider({ children }) {
 
     const flags = allFlags
 
-
     //recupera i dati dei film, combinando url con l'input dell'utente
 
     function handleMovie(searchText) {
@@ -39,6 +38,7 @@ function MoviesProvider({ children }) {
             .catch((error) => {
                 console.error("Error", error);
             });
+
     }
 
     //recupera i dati delle serie, combinando url con l'input dell'utente

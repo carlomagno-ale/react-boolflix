@@ -3,7 +3,7 @@ import { useMovies } from "../contexts/MoviesContext";
 
 export default function Home() {
 
-    const { handleMovie, handleTV, logo, iconSearch } = useMovies();
+    const { handleMovie, handleTV, logo, iconSearch, handleSearch } = useMovies();
     const [searchText, setSearchText] = useState('');
 
     return (
@@ -12,7 +12,7 @@ export default function Home() {
                 <div className="container">
                     <nav className="navbar navbar-dark bg-dark">
                         <div className="container-fluid">
-                            <a className="navbar-brand">
+                            <a className="navbar-brand" href="/">
                                 <img src={logo} alt="Boolflix Logo" />
                             </a>
                             <form className="d-flex my-2" role="search"
