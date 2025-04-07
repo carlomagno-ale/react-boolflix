@@ -5,7 +5,13 @@
   --light: white;
   --danger: red;
   --bg-dark: #212529;
+  --bg-mid: #2e3135;
+  --rating: yellow;
 
+}
+
+body {
+  background-color: var(--bg-mid);
 }
 
 .container {
@@ -27,4 +33,9 @@ header {
   border-color: var(--danger);
   box-shadow: none;
   outline: none;
+}
+
+.rating-star {
+
+  color: var(--rating);
 }

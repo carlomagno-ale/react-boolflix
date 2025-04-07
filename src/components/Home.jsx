@@ -59,7 +59,7 @@ export default function Home() {
                                     ) : (
                                         movie.original_language
                                     )}</li>
-                                    <li>Voti: {star(movie.vote_average)}</li>
+                                    <li>Voti: <span className="rating-star"> {star(movie.vote_average)}</span></li>
                                 </ul>
                             ))}
                         </div>
@@ -77,7 +77,7 @@ export default function Home() {
                                     <li>Serie: {series.name}</li>
                                     <li>Titolo originale: {series.original_name}</li>
                                     <li>Lingua: <img src={flags[series.original_language]} alt={series.original_language} /></li>
-                                    <li>Voti: {star(series.vote_average)}</li>
+                                    <li>Voti: <span className="rating-star">{star(series.vote_average)}</span></li>
                                 </ul>
                             ))}
                         </div>
