@@ -1,6 +1,6 @@
 import { useGlobal } from "../contexts/GlobalContext";
 
-export default function Home() {
+export default function Main() {
 
     const { movies, seriesTV, cover, star, flags, placeholder } = useGlobal();
 
@@ -9,9 +9,9 @@ export default function Home() {
             <main>
                 <div className="container mb-4">
                     <section className="row g-4 mt-1 justify-content-center">
-                        {movies.length > 0 ? (
+                        {movies.length > 0 || seriesTV.length > 0 ? (
                             <>
-                                {/*genera la card*/}
+                                {/*MOVIE*/}
                                 {movies.map((movie) => (
                                     <div key={movie.id} className="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
                                         <div className="card border-0 h-100">
@@ -25,14 +25,17 @@ export default function Home() {
                                             <div className="card-overlay border-0">
                                                 <div className="overlay-content">
                                                     <h4 className="card-title">{movie.title}</h4>
-                                                    <span className="value-title">Titolo originale:</span> {movie.original_title}
-                                                    {/*genera la bandiera della lingua prendendo le immagini dall'array in "data"*/}
+                                                    {/*Se i titoli sono uguali non viene mostrata questa voce*/}
+                                                    {movie.original_title !== movie.title ? (
+                                                        <><span className="value-title">Titolo originale:</span> {movie.original_title}</>
+                                                    ) : null}
+                                                    {/*genera la bandiera della lingua prendendo le immagini dall'array in flagList*/}
                                                     <div><span className="value-title">Lingua:</span>  <span className="flag">{flags[movie.original_language] ? (
                                                         <img src={flags[movie.original_language]} alt={movie.original_language} />
                                                     ) : (
                                                         movie.original_language
                                                     )}</span></div>
-                                                    {/*richiama la funzione star in "MoviesContext" per impostare il numero di stelle*/}
+                                                    {/*richiama la funzione star per impostare il numero di stelle*/}
                                                     <div><span className="value-title">Voto:</span><span className="rating-star"> {star(movie.vote_average)}</span></div>
                                                     {/*Se non è presente l'overview non viene mostrata questa voce*/}
                                                     {movie.overview.length > 0 ? (<><span className="value-title">Overview:</span><span className="overview">{movie.overview}</span></>) : (
@@ -43,15 +46,7 @@ export default function Home() {
                                         </div>
                                     </div>
                                 ))}
-                            </>
-                        ) : (
-                            <span></span>
-                        )}
-
-                        {/* TV */}
-                        {seriesTV.length > 0 ? (
-                            <>
-                                {/*genera la card*/}
+                                {/*TV*/}
                                 {seriesTV.map((series) => (
                                     <div key={series.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
                                         <div className="card border-0 h-100">
@@ -64,14 +59,18 @@ export default function Home() {
                                             <div className="card-overlay border-0">
                                                 <div className="overlay-content">
                                                     <h4 className="card-title">{series.name}</h4>
-                                                    <span className="value-title">Titolo originale:</span> {series.original_name}
+
+                                                    {series.original_name !== series.name ? (
+                                                        <><span className="value-title">Titolo originale:</span> {series.original_name}</>
+                                                    ) : null}
+
                                                     {/*genera la bandiera della lingua prendendo le immagini dall'array in "data"*/}
                                                     <div><span className="value-title">Lingua:</span> <span className="flag">{flags[series.original_language] ? (
                                                         <img src={flags[series.original_language]} alt={series.original_language} />
                                                     ) : (
                                                         series.original_language
                                                     )}</span></div>
-                                                    {/*richiama la funzione star in "MoviesContext" per impostare il numero di stelle*/}
+                                                    {/*richiama la funzione star per impostare il numero di stelle*/}
                                                     <div><span className="value-title">Voto:</span><span className="rating-star"> {star(series.vote_average)}</span></div>
                                                     {/*Se non è presente l'overview non viene mostrata questa voce*/}
                                                     {series.overview.length > 0 ? (<><span className="value-title">Overview:</span><span className="overview">{series.overview}</span></>) : (
@@ -84,7 +83,7 @@ export default function Home() {
                                 ))};
                             </>
                         ) : (
-                            <></>
+                            <p>cerca qualcosa</p>
                         )}
                     </section>
                 </div>

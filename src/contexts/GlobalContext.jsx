@@ -22,7 +22,7 @@ function GlobalProvider({ children }) {
 
     const flags = allFlags;
 
-    // Recupera i dati dei film, combinando url con l'input dell'utente
+    // Recupera i dati dei film/serie, combinando url con l'input dell'utente
     function handleMovie(searchText) {
         fetch(urlMovie + `&query=${searchText}`)
             .then(res => res.json())
