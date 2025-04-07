@@ -70,7 +70,7 @@ function GlobalProvider({ children }) {
         let stars = [];
 
         for (let i = 0; i < 5; i++) {
-            stars.push(i < roundNumb ? <FontAwesomeIcon icon={faStar} /> : <FontAwesomeIcon icon={faStarRegular} />);
+            stars.push(i < roundNumb ? <FontAwesomeIcon key={i} icon={faStar} /> : <FontAwesomeIcon key={i} icon={faStarRegular} />);
         }
         return stars;
     }
